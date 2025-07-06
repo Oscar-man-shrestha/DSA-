@@ -77,33 +77,33 @@
 // Check if a number is prime or not 
 
 // prime : 2,3,5,7,11
-import java.util.*;
-public class Loops{
-    public static void main(String[] args) {
+// import java.util.*;
+// public class Loops{
+//     public static void main(String[] args) {
 
-     Scanner sc = new Scanner(System.in);
-     System.out.println("Enter value for n");
-     int n = sc.nextInt();
-     boolean isPrime = true;
-     if(n==2){
-        System.out.println("n is prime");
-     }
-     else{
-// for(int i=2;i<=n-1;i++)
-for(int i=2;i<=Math.sqrt(n);i++){
-        if(n%i==0)
-        {
-           isPrime=false;
-        }
+//      Scanner sc = new Scanner(System.in);
+//      System.out.println("Enter value for n");
+//      int n = sc.nextInt();
+//      boolean isPrime = true;
+//      if(n==2){
+//         System.out.println("n is prime");
+//      }
+//      else{
+// // for(int i=2;i<=n-1;i++)
+// for(int i=2;i<=Math.sqrt(n);i++){
+//         if(n%i==0)
+//         {
+//            isPrime=false;
+//         }
     
-     }
+//      }
 
-     if(isPrime){
-        System.out.println("Yes Its Prime");
-     }
-     else{
-        System.out.println("No,Its not prime");
-     }
-    }} 
-     }
+//      if(isPrime){
+//         System.out.println("Yes Its Prime");
+//      }
+//      else{
+//         System.out.println("No,Its not prime");
+//      }
+//     }} 
+//      }
      
