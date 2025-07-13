@@ -97,27 +97,60 @@
 // Find the largest number in a given array 
 
 
+// import java.util.Scanner;
+
+// public class arrays {
+//     public static int getLargest(int numbers[]) {
+//         int currentLargestNumber = Integer.MIN_VALUE;  // - infinity
+//         int currentSmallestNumber = Integer.MAX_VALUE; // + infinity
+//         for(int i=0;i<numbers.length;i++){
+//             if(currentLargestNumber < numbers[i]){
+//                 currentLargestNumber = numbers[i];
+//             }
+//             if(currentSmallestNumber > numbers[i]){
+//                 currentSmallestNumber = numbers[i];
+//             }
+//         }
+//           System.out.println("Smallest number in a given array : " + currentSmallestNumber);
+//          return currentLargestNumber;
+        
+         
+//     }
+//     public static void main(String[] args) {
+//        int numbers [] = {1,2,6,3,5};
+//        System.out.print("Largest number in a given array : " + getLargest(numbers));
+//     }
+// }
+
+//   binary Search 
+
 import java.util.Scanner;
 
 public class arrays {
-    public static int getLargest(int numbers[]) {
-        int currentLargestNumber = Integer.MIN_VALUE;  // - infinity
-        int currentSmallestNumber = Integer.MAX_VALUE; // + infinity
-        for(int i=0;i<numbers.length;i++){
-            if(currentLargestNumber < numbers[i]){
-                currentLargestNumber = numbers[i];
-            }
-            if(currentSmallestNumber > numbers[i]){
-                currentSmallestNumber = numbers[i];
-            }
+   public static int binarySearch(int numbers[], int key) {
+    int start = 0, end = numbers.length - 1;
+
+    // Keep searching while start index is less than or equal to end index
+    while (start <= end) {
+        int mid = (start + end) / 2;
+
+        if (numbers[mid] == key) {
+            return mid; // Key found, return index
         }
-          System.out.println("Smallest number in a given array : " + currentSmallestNumber);
-         return currentLargestNumber;
-        
-         
+
+        if (numbers[mid] < key) {
+            start = mid + 1; // Key must be in the right half
+        } else {
+            end = mid - 1; // Key must be in the left half
+        }
     }
+
+    return -1; // Key not found
+}
+
     public static void main(String[] args) {
-       int numbers [] = {1,2,6,3,5};
-       System.out.print("Largest number in a given array : " + getLargest(numbers));
+       int numbers[]={2,4,6,8,10,12,14};
+       int key=10;
+       System.out.println("Index for key is : "+binarySearch(numbers, key));
     }
 }
