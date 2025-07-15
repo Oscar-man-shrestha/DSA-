@@ -63,6 +63,8 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //                             Linear Search
+
+
 // Find the index of element in a given array
 
 
@@ -94,6 +96,8 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //                             Largest Number
+
+
 // Find the largest number in a given array 
 
 
@@ -122,35 +126,131 @@
 //     }
 // }
 
-//   binary Search 
+
+//================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+//                             binary Search 
+
+// import java.util.Scanner;
+
+// public class arrays {
+//    public static int binarySearch(int numbers[], int key) {
+//     int start = 0, end = numbers.length - 1;
+
+//     // Keep searching while start index is less than or equal to end index
+//     while (start <= end) {
+//         int mid = (start + end) / 2;
+
+//         if (numbers[mid] == key) {
+//             return mid; // Key found, return index
+//         }
+
+//         if (numbers[mid] < key) {
+//             start = mid + 1; // Key must be in the right half
+//         } else {
+//             end = mid - 1; // Key must be in the left half
+//         }
+//     }
+
+//     return -1; // Key not found
+// }
+
+//     public static void main(String[] args) {
+//        int numbers[]={2,4,6,8,10,12,14};
+//        int key=10;
+//        System.out.println("Index for key is : "+binarySearch(numbers, key));
+//     }
+// }
+
+
+//================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+//                             Reverse an Array
+
+// import java.util.Scanner;
+
+// public class arrays {
+//    public static void reverseArray(int numbers[]) {
+//     int first = 0,last = numbers.length-1;
+//     while(first<last){
+//         int temp = numbers[last];
+//         numbers[last]=numbers[first];
+//         numbers[first]=temp;
+//         first++;
+//         last--;
+//     }
+// }
+
+//     public static void main(String[] args) {
+//      int numbers[]={2,4,6,8,10};
+//      reverseArray(numbers);
+//      for(int i=0;i<numbers.length;i++){
+//         System.out.print(numbers[i]+" ");
+//      }
+//     }
+// }
+ 
+//================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+//                             pairs in an Array
+
+// import java.util.Scanner;
+
+// public class arrays {
+//    public static void pairsInArray(int numbers[]) {
+//     for(int i=0;i<numbers.length;i++){
+//         int currentNumbers = numbers[i];
+//         for(int j=i+1;j<numbers.length;j++){
+//             System.out.println("("+currentNumbers+","+numbers[j]+")");
+//         }
+//     }
+// }
+
+//     public static void main(String[] args) {
+//     int numbers[] = {2,4,6,8,10};
+//     pairsInArray(numbers);
+//     }
+// }
+
+ 
+// ================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+//                             print subarrays
+
+// import java.util.Scanner;
+
+// public class arrays {
+
+//    public static void subarrays(int numbers[]) {
+//     int ts=0;
+//     for(int i=0;i<numbers.length;i++){
+//         int start = i;
+//         for(int j=i;j<numbers.length;j++){
+//             int end = j;
+//             for(int k=start;k<=end;k++){
+//                 System.out.print(numbers[k]+" ");
+//         }
+//         ts++;
+//         System.out.println();
+//         }
+//         System.out.println();
+//     }
+//     System.out.println("Total subarrays ="+ts);
+// }
+//     public static void main(String[] args) {
+//     int numbers[] = {2,4,6,8,10};
+//    subarrays(numbers);
+//     }
+// }
+
+// ================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+//                             Max subarray sum
+
 
 import java.util.Scanner;
 
 public class arrays {
-   public static int binarySearch(int numbers[], int key) {
-    int start = 0, end = numbers.length - 1;
 
-    // Keep searching while start index is less than or equal to end index
-    while (start <= end) {
-        int mid = (start + end) / 2;
-
-        if (numbers[mid] == key) {
-            return mid; // Key found, return index
-        }
-
-        if (numbers[mid] < key) {
-            start = mid + 1; // Key must be in the right half
-        } else {
-            end = mid - 1; // Key must be in the left half
-        }
-    }
-
-    return -1; // Key not found
+   public static void subarrays(int numbers[]) {
+   
 }
-
     public static void main(String[] args) {
-       int numbers[]={2,4,6,8,10,12,14};
-       int key=10;
-       System.out.println("Index for key is : "+binarySearch(numbers, key));
+    
     }
 }
