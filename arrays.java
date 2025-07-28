@@ -208,7 +208,7 @@
 //     pairsInArray(numbers);
 //     }
 // }
-
+ 
  
 // ================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 //                             print subarrays
@@ -233,6 +233,9 @@
 //     }
 //     System.out.println("Total subarrays ="+ts);
 // }
+
+
+
 //     public static void main(String[] args) {
 //     int numbers[] = {2,4,6,8,10};
 //    subarrays(numbers);
@@ -242,32 +245,27 @@
 // // ================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 // //                             Max subarray sum - I (Brute force)
 
-// public class arrays {
+// public class arrays{
 
-//    public static void maxSubArrays(int numbers[]) {
-//     int currentSum=0;
+// public static void maxSubArrays(int numbers[]) {
+//     int currSum = 0;
 //     int maxSum=Integer.MIN_VALUE;
-
 //     for(int i=0;i<numbers.length;i++){
 //         int start = i;
 //         for(int j=i;j<numbers.length;j++){
 //             int end = j;
-//             currentSum=0;
+//             currSum=0;
 //             for(int k=start;k<=end;k++){
-//                currentSum +=numbers[k];
-//  }
-//  System.out.println(currentSum);
-//                if(maxSum< currentSum){
-//                 maxSum=currentSum;
-//                }
-       
-       
-        
+//                 currSum+=numbers[k];
+//             }
+//             if(currSum>maxSum){
+//                 maxSum=currSum;
+//             }
 //         }
-       
 //     }
-//     System.out.println("Max sum = "  + maxSum);
-// }
+//    System.out.print(maxSum);
+//     }    
+
 //     public static void main(String[] args) {
 //     int numbers[] = {1,-2,6,-1,3};
 //    maxSubArrays(numbers);
@@ -278,46 +276,59 @@
 // ================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 //                             Max subarray sum - II (prefix sum)
 
-public class arrays {
+// public class arrays{
 
-   public static void maxSubArrays(int numbers[]) {
+// public static void maxSubArrays(int arr[]) {
+//    int prefixSum[]=new int [arr.length];
+//    prefixSum[0]=arr[0];
+//    int currSum=0;
+//    int maxSum=Integer.MIN_VALUE;
+//    for(int i=1;i<arr.length;i++){
+//     prefixSum[i]=prefixSum[i-1]+arr[i];
+//    }
+
+//    for(int i=0;i<arr.length;i++){
+//     int start = i;
+//     for(int j=i;j<arr.length;j++){
+//         int end=j;
+//         currSum = start==0?prefixSum[end] : prefixSum[end]-prefixSum[start-1];
+//         if(currSum>maxSum){
+//             maxSum=currSum;
+//         }
+//     }
+//    }
+//    System.out.println(maxSum);
     
-    int maxSum=Integer.MIN_VALUE;
-    int prefix [] = new int[numbers.length];
-    prefix[0] = numbers[0];
+//     }    
+//     public static void main(String[] args) {
+//     int arr[] = {1,-2,6,-1,3};
+//    maxSubArrays(arr);
+   
+//     }
+// }
+//==============================================================================================================================================
 
-    //calculate prefix array
-    for(int i=1;i<prefix.length;i++){
-        prefix[i]=prefix[i-1]+numbers[i];
+
+//Max Subarray Sum -III (Kadane's Algorithm)
+
+public class arrays{
+public static void Kadanes(int arr[]) {
+    int maxSum = arr[0]; // Start with the first element
+    int currentSum = arr[0];
+
+    for (int i = 1; i < arr.length; i++) {
+        currentSum = Math.max(arr[i], currentSum + arr[i]);
+        maxSum = Math.max(maxSum, currentSum);
     }
 
-
-    for(int i=0;i<numbers.length;i++){
-        int start = i;
-        for(int j=i;j<numbers.length;j++){
-            int end = j;
-            int currentSum=0;
-
-            currentSum =  start ==0 ? prefix[end] : prefix[end]-prefix[start-1];
-//             for(int k=start;k<=end;k++){
-//                currentSum +=numbers[k];
-//  }
-
-
-//  System.out.println(currentSum);
-               if(maxSum< currentSum){
-                maxSum=currentSum;
-               }
-       
-       
-        
-        }
-       
-    }
-    System.out.println("Max sum = "  + maxSum);
+    System.out.println("Our max subarray sum is: " + maxSum);
 }
+
     public static void main(String[] args) {
-    int numbers[] = {1,-2,6,-1,3};
-   maxSubArrays(numbers);
+    int arr[] = {-2,-3,4,-1,-2,1,5,-3};
+   Kadanes(arr);
+   
     }
 }
+
+ 
