@@ -311,24 +311,88 @@
 
 //Max Subarray Sum -III (Kadane's Algorithm)
 
-public class arrays{
-public static void Kadanes(int arr[]) {
-    int maxSum = arr[0]; // Start with the first element
-    int currentSum = arr[0];
+// public class arrays{
+// public static void Kadanes(int arr[]) {
+//     int maxSum = arr[0]; // Start with the first element
+//     int currentSum = arr[0];
 
-    for (int i = 1; i < arr.length; i++) {
-        currentSum = Math.max(arr[i], currentSum + arr[i]);
-        maxSum = Math.max(maxSum, currentSum);
-    }
+//     for (int i = 1; i < arr.length; i++) {
+//         currentSum = Math.max(arr[i], currentSum + arr[i]);
+//         maxSum = Math.max(maxSum, currentSum);
+//     }
 
-    System.out.println("Our max subarray sum is: " + maxSum);
-}
+//     System.out.println("Our max subarray sum is: " + maxSum);
+// }
 
-    public static void main(String[] args) {
-    int arr[] = {-2,-3,4,-1,-2,1,5,-3};
-   Kadanes(arr);
+//     public static void main(String[] args) {
+//     int arr[] = {-2,-3,4,-1,-2,1,5,-3};
+//    Kadanes(arr);
    
-    }
-}
+//     }
+// }
 
  
+
+// public class arrays {
+
+//     public static void trappingWater(int height[]){
+//         int leftMax [] = new int [height.length];
+//         int rightMax [] = new int [height.length];
+// int min = Integer.MAX_VALUE;
+// int max = Integer.MIN_VALUE;
+
+
+//         for(int i=0;i<height.length;i++){
+//             if(height[i]<height[i+1] && height[i+1]>max){
+//                 rightMax [i] = height[i+1 ];
+//                 max=rightMax[i];
+
+//             }else{
+//                 if(max<rightMax[i]){
+//                     max=rightMax[i];
+//                 }
+//                 else{
+//                     rightMax[i]=max;
+//                 }
+//             }
+//         }
+//     }
+//     public static void main(String[] args) {
+//         int height [] = {4,2,0,6,3,2,5};
+//         trappingWater( height);
+//     }
+// }
+
+
+public class arrays {
+
+    public static int trappingWater(int height[]){
+      int leftMax []=new int [height.length];
+      int rightMax []=new int [height.length];
+      leftMax[0]=height[0];
+      for(int i=1;i<height.length;i++){
+        leftMax[i]=Math.max(height[i],leftMax[i-1]);
+      }
+      rightMax[height.length-1]= height[height.length-1];
+      for(int i=height.length-2;i>=0;i--){
+        rightMax [i]=Math.max(height[i], rightMax[i+1]);
+      }
+
+      //Loops
+
+      int trappedWater = 0;
+      for(int i=0;i<height.length;i++){
+        int waterLevel = Math.min(leftMax[i], rightMax[i]);
+        trappedWater += (waterLevel-height[i]);
+
+         
+      }
+      return trappedWater;
+
+    }
+    public static void main(String[] args) {
+        int height [] = {4,2,0,6,3,2,5};
+     int result = trappingWater(height);
+     System.out.println(result);
+    }
+}
