@@ -32,6 +32,11 @@ public class practice{
          printSelectionArray(arr);
 
     }
+
+    public void addFirst(int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addFirst'");
+    }
 }
 
 
