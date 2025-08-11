@@ -86,6 +86,14 @@
 // }
 
 
+
+
+
+
+
+
+
+
 public class LinkedListOperations {
 
    
@@ -146,6 +154,8 @@ public class LinkedListOperations {
             }
         }
 
+
+
         
         public void deleteKey(int key) {
             if (head == null) return;
@@ -165,6 +175,8 @@ public class LinkedListOperations {
             }
         }
 
+
+
         
         public void display() {
             Node curr = head;
@@ -174,37 +186,65 @@ public class LinkedListOperations {
             }
             System.out.println("null");
         }
+
+        void merge(LinkedList list2){
+            if(this.head==null){
+                this.head=list2.head;
+                return;
+            }
+            if(list2.head==null){
+                return;
+            }
+
+            Node current =this.head;
+            while(current.next!=null){
+                current=current.next;
+            }
+            current.next=list2.head;
+        }
+
+
     }
 
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
+        LinkedList list1 = new LinkedList();
+         LinkedList list2 = new LinkedList();
 
-        // Insert elements
-        list.insert(10);
-        list.insert(20);
-        list.insert(30);
-        list.insert(40);
-        list.insert(50);
+         list1.insert(6);
+          list1.insert(7);
+           list1.insert(8);
 
-        System.out.println("Original list:");
-        list.display();
+            list2.insert(9);
+            list2.insert(10);
+           
 
-        // Search key
-        int key = 30;
-        System.out.println("Is " + key + " present? " + list.search(key));
 
-        // Get sum
-        System.out.println("Sum of nodes: " + list.getSum());
+        // // Insert elements
+        // list.insert(10);
+        // list.insert(20);
+        // list.insert(30);
+        // list.insert(40);
+        // list.insert(50);
 
-        // Delete first node
-        list.deleteFirst();
-        System.out.println("After deleting first node:");
-        list.display();
+        // System.out.println("Original list:");
+        // list.display();
 
-        // Delete a specific key
-        list.deleteKey(40);
-        System.out.println("After deleting key 40:");
-        list.display();
+        // // Search key
+        // int key = 30;
+        // System.out.println("Is " + key + " present? " + list.search(key));
+
+        // // Get sum
+        // System.out.println("Sum of nodes: " + list.getSum());
+
+        // // Delete first node
+        // list.deleteFirst();
+        // System.out.println("After deleting first node:");
+        // list.display();
+
+        // // Delete a specific key
+        // list.deleteKey(40);
+        // System.out.println("After deleting key 40:");
+        // list.display();
     }
 }

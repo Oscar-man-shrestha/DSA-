@@ -133,71 +133,170 @@
 // }
 
 
+// import java.util.*;
+
+// public class Matrices {
+
+//     public static void spiralMatrix (int arr[][]){
+//       int startRow = 0;
+//       int startCol = 0;
+//       int endRow = arr.length-1;
+//       int endCol = arr[0].length-1;
+
+//       {
+//         for(int j=startCol;j<=endCol;j++){
+//            System.out.print(arr[startRow][j]+" ");
+//             }
+//             for(int i=startRow+1;i<=endRow;i++){
+//                 System.out.print(arr[i][endCol]+" ");
+//             }
+//             for(int j=endCol-1;j>=startCol;j--){
+//                 if(startCol==endCol){
+//                     break;
+//                 }
+//                 System.out.print(arr[endRow][j]+" ");
+//             }
+//             for(int i=endRow-1;i>=startRow+1;i--){
+//                 if(startRow==endRow){
+//                     break;
+
+//                 }
+//                 System.out.print(arr[i][startCol]+" "); 
+//             }
+//             startRow++;
+//             startCol++;
+//             endCol--;
+//             endRow--;
+//         }
+//         System.out.println();
+//       }
+
+
+//       public static int PdiagonalMatrixsum(int arr[][]){
+//         int sum=0;
+//         for(int i =0;i<arr.length;i++){
+//             sum+=arr[i][i];
+
+//             if(i!=arr.length-i-1)
+//             sum+=arr[i][arr.length-1-i];
+
+        
+//         }
+//         return sum;
+//       }
+   
+
+
+    
+//     public static void main(String[] args) {
+//         int arr[][] = {
+//              {1,2,3,4},
+//              {5,6,7,8},
+//             {9,10,11,12},
+//             {13,14,15,16}
+//         };
+//         // spiralMatrix(arr);
+//        int sum =  PdiagonalMatrixsum(arr);
+//        System.out.println(sum);
+       
+//     }
+// }
+
+
+
+
+
+// import java.util.*;
+
+// public class Matrices {
+
+//     public static boolean stairCaseSearch (int arr[][],int key){
+//         int row = 0, col = arr[0].length - 1;
+
+//         while (row < arr.length && col >= 0) {
+//             if (arr[row][col] == key) {
+//                 System.out.println("Found key at (" + row + "," + col + ")");
+//                 return true;
+//             } else if (key < arr[row][col]) {
+//                 col--;
+//             } else {
+//                 row++;
+//             }
+//         }
+//         System.out.println("Key not found!!");
+//         return false;
+//     }
+     
+    
+      
+
+
+      
+      
+   
+
+
+    
+//     public static void main(String[] args) {
+//         int arr [][]={
+//             {10,20,30,40},
+//             {15,25,35,45},
+//             {27,29,37,48},
+//             {32,33,49,50}
+//         };
+//         int key=33;
+//         stairCaseSearch(arr,key);
+       
+//     }
+// }
+
+
+
+//Sorted array stair case search
+
+
 import java.util.*;
 
 public class Matrices {
 
-    public static void spiralMatrix (int arr[][]){
-      int startRow = 0;
-      int startCol = 0;
-      int endRow = arr.length-1;
-      int endCol = arr[0].length-1;
+    public static boolean stairCaseSearch (int arr[][],int key){
+        int row = arr.length - 1;
+        int col = 0;
 
-      while(startRow<=endRow && startCol<=endCol){
-        for(int j=startCol;j<=endCol;j++){
-           System.out.print(arr[startRow][j]+" ");
+        while (row >=0 && col<arr[0].length) {
+            if (arr[row][col] == key) {
+                System.out.println("Found key at (" + row + "," + col + ")");
+                return true;
+            } else if (key < arr[row][col]) {
+                row--;
+            } else {
+                col++;
             }
-            for(int i=startRow+1;i<=endRow;i++){
-                System.out.print(arr[i][endCol]+" ");
-            }
-            for(int j=endCol-1;j>=startCol;j--){
-                if(startCol==endCol){
-                    break;
-                }
-                System.out.print(arr[endRow][j]+" ");
-            }
-            for(int i=endRow-1;i>=startRow+1;i--){
-                if(startRow==endRow){
-                    break;
-
-                }
-                System.out.print(arr[i][startCol]+" "); 
-            }
-            startRow++;
-            startCol++;
-            endCol--;
-            endRow--;
         }
-        System.out.println();
-      }
+        System.out.println("Key not found!!");
+        return false;
+    }
+     
+    
+      
 
 
-      public static int PdiagonalMatrixsum(int arr[][]){
-        int sum=0;
-        for(int i =0;i<arr.length;i++){
-            sum+=arr[i][i];
-
-            if(i!=arr.length-i-1)
-            sum+=arr[i][arr.length-1-i];
-
-        
-        }
-        return sum;
-      }
+      
+      
    
 
 
     
     public static void main(String[] args) {
-        int arr[][] = {
-             {1,2,3,4},
-             {5,6,7,8},
-            {9,10,11,12},
-            {13,14,15,16}
+        int arr [][]={
+            {10,20,30,40},
+            {15,25,35,45},
+            {27,29,37,48},
+            {32,33,49,50}
         };
-        // spiralMatrix(arr);
-       int sum =  PdiagonalMatrixsum(arr);
-       System.out.println(sum);
+        int key=30;
+        stairCaseSearch(arr,key);
        
     }
 }
+
